@@ -64,3 +64,8 @@ launchctl list | grep dsh-remote
 - 效果：桌面 App 开着 → 办公室浏览器 = 桌面本身（同一实例，实时流，双方可同时操作，无锁冲突）；桌面 App 关闭 → 锁随进程释放，web 实例可继续任何会话。
 - 验证（evidence/desktop-takeover.txt）：page 200 桌面 shell（42641B≠web 39212B）；API 200 桌面 profile（44761B≠web 43746B，含 model-failover 配置）；WS /api/remote.mux 101 握手成功；无 cookie 401。
 - 安全注记：铸造 cookie 使用的密钥与官方交换所用同一持久密钥，本机 0600 存储，未新增信任边界；gate 仍是公网唯一入口与认证层。
+
+## 最终验证（2026-11-01 23:27，用户确认可用）
+- session/list 经 gate→桌面实例：900 会话、20 工作区全覆盖；当前对话 running=true、updatedAt=23:26:43、asOfSeq=1555 —— 网页与桌面运行状态一致（完整接力成立）。
+- 桌面 App 重启（60013→51914）gate 15 秒自动重锁端口，查询无感恢复。
+- 用户浏览器实测通过。
