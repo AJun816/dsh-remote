@@ -57,3 +57,10 @@ launchctl list | grep dsh-remote
 - 事故留痕：22:51 清理脚本缺陷损坏 patch 致实例短暂崩溃循环，22:52 从备份+desktop 源重建恢复（KeepAlive 自动拉起，中断 <2 分钟）。
 - 验证：本地与公网 API 均 200 且含 glm-5.3/zai-coding-cn-2；dump-config 零告警；node_modules 27→121。
 - 注意：以后桌面端新装插件/改模型不会自动同步到 web 端（profile 隔离是产品行为）。再同步参考本记录①②③。
+
+## 运维记录（2026-11-01 23:10 追加：gate v2 双上游 = 完整接力）
+- 需求：办公室要能直接接力桌面 App 正在进行的对话（读+写+实时流），而非旁观。
+- 方案：gate 升级双上游——优先自动发现桌面 App 内置服务（lsof+签名探测，15s 刷新），用 ~/.dsh/.credentials.yaml 共享签名密钥铸造 loopback 授权 cookie（与官方 token→cookie 交换等价，30 天窗口内合法），Host/Origin 改写通过信任栅栏；桌面 App 关闭时自动回退 17877 常驻 web 实例（官方 token 交换）。公网侧固定 key 门卫不变。
+- 效果：桌面 App 开着 → 办公室浏览器 = 桌面本身（同一实例，实时流，双方可同时操作，无锁冲突）；桌面 App 关闭 → 锁随进程释放，web 实例可继续任何会话。
+- 验证（evidence/desktop-takeover.txt）：page 200 桌面 shell（42641B≠web 39212B）；API 200 桌面 profile（44761B≠web 43746B，含 model-failover 配置）；WS /api/remote.mux 101 握手成功；无 cookie 401。
+- 安全注记：铸造 cookie 使用的密钥与官方交换所用同一持久密钥，本机 0600 存储，未新增信任边界；gate 仍是公网唯一入口与认证层。

@@ -1,0 +1,7 @@
+== gate v2 双上游证据 (23:09) ==
+health: {"ok":true,"upstream":"desktop:60013","webCookie":false,"minting":true}
+page(desktop shell): 200 bytes=42641
+api(desktop profile): 200 bytes=44761
+api(web 实例对照, 直连17877经gate web模式特征): 43746 bytes (此前实测)
+WS /api/remote.mux: HTTP/1.1 101 Switching Protocols (sec-websocket-accept 验证通过)
+WS 无cookie: HTTP/1.1 401 Unauthorized
