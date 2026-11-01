@@ -1,0 +1,4 @@
+ID=c1b628e65507af2be6d77c04505f9d98f582734daf919d9344e2d78e0285b388 IMAGE=cloudflare/cloudflared:2026.6.1 STATUS=running RESTART=unless-stopped
+c9e12a0d07da594d07dd43ed4d5792d07658ce6946bf8b854e9d3686f714dffa  /Users/ajun/projects/github/aff-data-analysis/cicd/cloudflared/8bb24b25-9d0e-4bd4-b44b-47f6df934c95.json
+1626a848135374d08f7e9e3fd20300f9713cc3fb1209ea585097257b12dff7ea  /Users/ajun/projects/github/aff-data-analysis/cicd/cloudflared/.gitignore
+5b58a07ad699f5dcdff0f3a7d9b82d970df2a15a100a1bd16cb90c0c190f4ef7  /Users/ajun/projects/github/aff-data-analysis/cicd/cloudflared/config.yml

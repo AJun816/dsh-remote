@@ -1,0 +1,5 @@
+== A8-1 PUBLIC POST /api/settings/describe (gate cookie) ==
+{"type":"server-response","rpcId":"pub-a8","result":{"ok":true,"value":{"writable":true,"hasDocument":true,"namespaces":[{"ns":"session-log-deepseek","autoGenerate":true,"schema":{"uid":5329,"refs":{"5328":{"type":"boolean","meta":{"default":true}},"5329":{"ty
+== A8-2 LOCAL 对照 (127.0.0.1 gate) ==
+{"type":"server-response","rpcId":"loc-a8","result":{"ok":true,"value":{"writable":true,"hasDocument":true,"namespaces":[{"ns":"session-log-deepseek","autoGenerate":true,"schema":{"uid":5796,"refs":{"5795":{"type":"boolean","meta":{"default":true}},"5796":{"typublic-HTTP=200
+local-HTTP=200

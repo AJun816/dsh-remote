@@ -1,0 +1,18 @@
+# 方法注记：本机 mDNSResponder 缓存了新域名的否定应答（家侧客户端问题，与公网无关），
+# 故公网验收用 --resolve 钉住权威侧已返回的 CF 边缘 IP；DNS 独立性由 dig @1.1.1.1/@8.8.8.8 证明。
+
+== A3-1 no-cred GET / ==
+curl: (35) Recv failure: Connection reset by peer
+
+== A3-2 no-cred POST /api/settings/describe ==
+HTTP/2 401 
+date: Sun, 01 Nov 2026 14:30:03 GMT
+content-type: text/plain; charset=utf-8
+cache-control: no-store
+cf-cache-status: DYNAMIC
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=vTcHayfHfFPZHOihXdY5AoPRy5stAv7yMCccchahgYmC6sGmlBB1fE9d0M3G7zK8KNxoAmtEYD74HnDwhDIajav9ecHkssVTITr%2B3wHdldeopPTjCbDyJm3iFOJjTc%2B0NA%3D%3D"}]}
+server: cloudflare
+cf-ray: a53b985d2a6ad4d9-LAX
+alt-svc: h3=":443"; ma=86400
+

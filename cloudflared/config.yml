@@ -1,0 +1,9 @@
+tunnel: 669b8e29-9626-43e8-9ab3-2efa9982e169
+credentials-file: /etc/cloudflared/669b8e29-9626-43e8-9ab3-2efa9982e169.json
+protocol: http2
+ingress:
+  - hostname: dsh.htgjai.com
+    service: http://host.docker.internal:17777
+    originRequest:
+      noTLSVerify: true
+  - service: http_status:404

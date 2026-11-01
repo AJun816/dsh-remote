@@ -1,0 +1,23 @@
+== T1 no-credential GET / ==
+status=401
+== T2 wrong key ==
+status=401
+== T3 correct key -> expect 303 + Set-Cookie dshgate ==
+HTTP/1.1 303 See Other
+location: ./
+cache-control: no-store
+referrer-policy: no-referrer
+set-cookie: dshgate=<GATECOOKIE>; Max-Age=315360000; Path=/; HttpOnly; SameSite=Strict
+Date: Sun, 01 Nov 2026 14:19:33 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+== T4 gate cookie GET / -> expect 200 ==
+cookie-name-check: dshgate=<hash>
+status=200 bytes=39212
+<title>DeepSeek Harness</title>
+== T5 no-credential POST /api/settings/describe -> expect 401 ==
+status=401
+== T6 gate cookie POST /api/settings/describe -> expect 200 server-response ==
+{"type":"server-response","rpcId":"local-t6","result":{"ok":true,"value":{"writable":true,"hasDocument":true,"namespaces":[{"ns":"session-log-deepseek","autoGenerate":true,"schema":{"uid":4395,"refs":{"4394":{"type":"boolean","meta":{"default":true}},"4395":{"type":"object","meta":{"default":{}},"dict":{"enabled":4394}}}},"value":{"enabled":true},"base":{"enabled":true},"user":{},"applies":"live",
+== T7 health ==
+{"ok":true,"sessionCookie":true}

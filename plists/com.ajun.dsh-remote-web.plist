@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>/Users/ajun</string>
+		<key>PATH</key>
+		<string>/Users/ajun/.nvm/versions/node/v24.19.0/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>KeepAlive</key>
+	<true/>
+	<key>Label</key>
+	<string>com.ajun.dsh-remote-web</string>
+	<key>ProcessType</key>
+	<string>Background</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh</string>
+		<string>web</string>
+		<string>--no-open</string>
+		<string>--host</string>
+		<string>127.0.0.1</string>
+		<string>--port</string>
+		<string>17877</string>
+		<string>--public-url</string>
+		<string>https://dsh.htgjai.com</string>
+		<string>--trusted-host</string>
+		<string>dsh.htgjai.com</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/Users/ajun/dsh-remote/dsh-web.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/ajun/dsh-remote/dsh-web.log</string>
+	<key>ThrottleInterval</key>
+	<integer>10</integer>
+	<key>WorkingDirectory</key>
+	<string>/Users/ajun</string>
+</dict>
+</plist>

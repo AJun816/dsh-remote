@@ -1,0 +1,7 @@
+old-token-prefix: AvWZ9TICWqOG
+recovered: HTTP 200 after ~15s
+new-token-prefix: Xc0Vwt0so5OP
+gate re-exchange log:
+2026-11-01T14:19:33.992Z session cookie adopted
+2026-11-01T14:32:17.825Z gate listening on 127.0.0.1:17777 -> 127.0.0.1:17877 as dsh.htgjai.com
+2026-11-01T14:33:13.878Z session cookie adopted

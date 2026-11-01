@@ -1,0 +1,29 @@
+# 公网验收：--resolve 钉住 CF 边缘 IP（原因见 public-401.txt 注记）
+== A4-1 GET /?key=<GATEKEY> -> expect 303 + dshgate Set-Cookie ==
+HTTP/2 303 
+date: Sun, 01 Nov 2026 14:30:32 GMT
+location: ./
+cache-control: no-store
+referrer-policy: no-referrer
+set-cookie: dshgate=<GATECOOKIE>; Max-Age=315360000; Path=/; HttpOnly; SameSite=Strict
+cf-cache-status: DYNAMIC
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=zGqz2M9WfW8MWmvu7rJx8XeruRi0Hji26GuWIifKq33a9rVHhM2ghmk1ZuBerd2809BtIqdWqWgwKxihFtxU2dCzOgOHI2WFy%2Bf2uclq3SPPjMvWJtSt2h3jQOEIs1n82Q%3D%3D"}]}
+server: cloudflare
+cf-ray: a53b99100febd8a6-LAX
+alt-svc: h3=":443"; ma=86400
+
+== A4-2 gate cookie GET / -> expect 200 + cf-ray ==
+HTTP/2 200 
+date: Sun, 01 Nov 2026 14:30:36 GMT
+content-type: text/html; charset=utf-8
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ZSl1fI0IhOHoOnQoEZvy56lXV%2BDZTX9q%2BpNqLAwN98qrgebWpRLUCjNYxu%2FnbWdD1L6nF8enLrk%2FAo8xtO09l722GJHSWXH%2BLkCYKsd68B3yrDZmqdReiKPQ8sqTbudnlw%3D%3D"}]}
+vary: Accept-Encoding
+cf-cache-status: DYNAMIC
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a53b992ca879b1b6-LAX
+alt-svc: h3=":443"; ma=86400
+
+curl: (28) Operation timed out after 25006 milliseconds with 24606 bytes received
+title: 

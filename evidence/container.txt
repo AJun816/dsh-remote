@@ -1,0 +1,6 @@
+RestartPolicy=always Running=true
+dsh-remote-cloudflared
+running-again after ~5s
+post-restart public probe:
+public-no-cred=401
+dsh-remote-cloudflared Up 15 seconds

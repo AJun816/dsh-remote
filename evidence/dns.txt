@@ -1,0 +1,11 @@
+== dig @1.1.1.1 (独立递归) ==
+104.21.5.96
+172.67.133.67
+== dig @8.8.8.8 (独立递归) ==
+104.21.5.96
+172.67.133.67
+== dig @权威NS holly.ns.cloudflare.com ==
+172.67.133.67
+104.21.5.96
+== route dns 命令证据 ==
+2026-11-01T14:26:44Z INF Added CNAME dsh.htgjai.com which will route to this tunnel tunnelID=669b8e29-9626-43e8-9ab3-2efa9982e169

@@ -1,0 +1,6 @@
+gate-secret.txt
+cloudflared/*.json
+*.log
+.dsh-project-memory/
+.DS_Store
+node_modules/

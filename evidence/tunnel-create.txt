@@ -1,0 +1,3 @@
+Tunnel credentials written to /Users/ajun/.cloudflared/669b8e29-9626-43e8-9ab3-2efa9982e169.json. cloudflared chose this file based on where your origin certificate was found. Keep this file secret. To revoke these credentials, delete the tunnel.
+
+Created tunnel dsh-remote with id 669b8e29-9626-43e8-9ab3-2efa9982e169
