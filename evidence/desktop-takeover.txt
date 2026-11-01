@@ -5,3 +5,10 @@ api(desktop profile): 200 bytes=44761
 api(web 实例对照, 直连17877经gate web模式特征): 43746 bytes (此前实测)
 WS /api/remote.mux: HTTP/1.1 101 Switching Protocols (sec-websocket-accept 验证通过)
 WS 无cookie: HTTP/1.1 401 Unauthorized
+
+== 完整接力一致性验证（23:25，经 gate→桌面实例） ==
+- POST /api/session/list {"_request":{}} → 200，2,265,802 字节，900 个会话
+- 会话列表跨全部工作区：aff-data-analysis 653、draft-blog 56、ai-manju 56、ai-desktop-robot 43、dsh-toolkit 11、dsh-remote 1 …（每条含 cwd）
+- 当前对话 session-314a4e11 在列表首位：running=true，updatedAt=23:21:19（查询当刻），asOfSeq=1555，含 title/goal 投影
+- WS /api/remote.mux 101（见上）＝实时流通道可用
+- 公网注记：23:2x 晚高峰国际链路拥塞（页面 39s/42KB，大响应中断）；22:26-22:31 同链路毫秒~秒级全绿，属时段性
